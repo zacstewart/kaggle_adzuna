@@ -11,7 +11,7 @@ logging.info('Loading train file...')
 h, rows = loadFile('data/Train_rev1.csv')
 
 logging.info('Converting to numPy array...')
-rows = np.array(rows[0:1000])
+rows = np.array(rows)
 n            = rows.shape[0]
 descriptions = rows[:, h['FullDescription']]
 salaries     = rows[:, h['SalaryNormalized']].astype(int)
