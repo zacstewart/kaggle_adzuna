@@ -41,6 +41,7 @@ models = [
 model_scores = {}
 for model in models:
   scores = []
+  logging.info("Evaluating %(model)s" % {'model': model.__class__.__name__})
   for train_index, cv_index in rs:
     X_train_counts = count_vectorizer.fit_transform(descriptions[train_index])
     X_train = tfidf_transformer.fit_transform(X_train_counts)
