@@ -42,6 +42,7 @@ models = [
     SGDRegressor(),
   ]
 
+logging.info('Evaluate several models...')
 model_scores = {}
 for model in models:
   scores = []
