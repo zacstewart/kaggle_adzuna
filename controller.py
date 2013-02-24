@@ -23,6 +23,10 @@ n            = rows.shape[0]
 descriptions = rows[:, h['FullDescription']]
 salaries     = rows[:, h['SalaryNormalized']].astype(int)
 
+logging.info('Freeing test set memory...')
+del rows
+gc.collect()
+
 rs = ShuffleSplit(n, test_size=0.2, random_state=0)
 count_vectorizer = CountVectorizer()
 tfidf_transformer = TfidfTransformer()
@@ -58,10 +62,6 @@ for model in models:
 for (model, score) in model_scores.iteritems():
   print "%(model)s: %(score)f" % \
       {'model': model, 'score': score}
-
-logging.info('Freeing test set memory...')
-del rows
-gc.collect()
 
 logging.info('Loading test file...')
 h, test = loadFile('data/Valid_rev1.csv')
