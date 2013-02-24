@@ -29,4 +29,4 @@ logging.info('Saving submission...')
 submission = np.empty([n, 2])
 submission[:, 0] = test[:, h['Id']]
 submission[:, 1] = np.median(salaries)
-np.savetxt('submission.csv', submission, delimiter=',')
+np.savetxt('submission.csv', submission, delimiter=',', fmt='%i')
