@@ -1,0 +1,4 @@
+*.pyc
+venv/bin
+venv/lib
+venv/include
